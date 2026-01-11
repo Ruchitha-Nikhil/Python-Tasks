@@ -3,9 +3,12 @@ from tkinter import messagebox
 import requests
 from PIL import Image, ImageTk
 import io
+import os
 
 # ------------------ API KEY ------------------
-API_KEY = "b7b587e1474ae0355f1e008c42c23971"
+API_KEY = os.getenv("OPENWEATHER_API_KEY")
+if not API_KEY:
+raise ValueError("API key not found. set OPENWEATHER_API_KEY")
 
 # ------------------ APP WINDOW ------------------
 app = tk.Tk()
